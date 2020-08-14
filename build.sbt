@@ -1,3 +1,5 @@
+import aether.AetherKeys._
+
 scalaVersion := "2.13.1"
 
 name := "sbtgithubpackages"
@@ -9,5 +11,12 @@ libraryDependencies += "com.pi4j" % "pi4j-gpio-extension" %"1.2"
 
 githubOwner := "ruimo"
 githubRepository := "sbtgithubpackage"
+
+crossPaths := false //needed if you want to remove the scala version from the artifact name
+
+aetherArtifact := {
+    val artifact = aetherArtifact.value
+    artifact.attach((packageBin in Universal).value, "dist", "zip")
+}
 
 lazy val root = (project in file(".")).enablePlugins(UniversalDeployPlugin, JavaAppPackaging)
