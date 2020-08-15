@@ -20,3 +20,10 @@ aetherArtifact := {
 }
 
 lazy val root = (project in file(".")).enablePlugins(UniversalDeployPlugin, JavaAppPackaging)
+
+publishTo := Some(
+  Resolver.file(
+    "sbtgithubpackage",
+    new File(Option(System.getenv("RELEASE_DIR")).getOrElse("/tmp"))
+  )
+)
