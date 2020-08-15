@@ -6,7 +6,7 @@ organization := "com.ruimo"
 libraryDependencies += "com.pi4j" % "pi4j-core" % "1.2"
 libraryDependencies += "com.pi4j" % "pi4j-gpio-extension" %"1.2"
 
-lazy val root = (project in file(".")).enablePlugins(UniversalPlugin, JavaAppPackaging)
+lazy val root = (project in file(".")).enablePlugins(UniversalDeployPlugin, JavaAppPackaging)
 
 publishTo := Some(
   Resolver.file(
