@@ -1,5 +1,3 @@
-import aether.AetherKeys._
-
 scalaVersion := "2.13.1"
 
 name := "sbtgithubpackages"
